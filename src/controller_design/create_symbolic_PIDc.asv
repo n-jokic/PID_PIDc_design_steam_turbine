@@ -14,20 +14,10 @@ ns = sym('eta_s', {'real', 'positive'});
 lam = sym('lambda', {'real', 'positive'});
 N = sym('N', {'real', 'positive'});
 
-
-W = (ns*p+1)/(lam*p+1)/(lam/N*p+1)^3;
-
-sol_ns = solve(1-W, ns, ...
+sol_ns = solve((lam*p + 1)*(lam/N*p+1)^3-(ns*p+1), ns, ...
     'ReturnConditions', true).eta_s;
 
-
-
-sol_ns = simplify(subs(sol_ns, p, -1/TP));
-[num, den] = numden(sol_ns);
-sol_ns  = collect(num)/den;
-
-
-Q = simplify(subs(W/(1-W)/G, ns, sol_ns), ...
-    'IgnoreAnalyticConstraints', true, 'Steps', 10);
+W = (ns*p+1)/(lam*p+1)/(lam/N*p+1)^3;
+Q = simplify(subs(sW/(1-W)/G, ns, sol_ns));
 end
 

@@ -6,7 +6,7 @@ lam = sym('lambda', {'real', 'positive'});
 N = sym('N', {'real', 'positive'});
 Pd = sym('P_d');
 
-W = (ns*p+1)/(lam*s+1)/(lam\N*s+1)^3;
+W = (ns*p+1)/(lam*p+1)/(lam/N*p+1)^3;
 
 disp('W: ')
 disp(latex(W));
@@ -20,7 +20,7 @@ disp(Fd);
 
 % solve(1-W), solve(num) daju pogresno resenje????
 
-sol_ns = solve((lam*p + 1)*(lam/N*p+1)^3-(ns*p+1), ns, ...
+sol_ns = solve(1-W, ns, ...
     'ReturnConditions', true).eta_s;
 
 disp('eta_s: ')
@@ -32,9 +32,10 @@ sol_ns = simplify(subs(sol_ns, p, -1/TP));
 disp(latex(collect(num)/den));
 disp('=============================================');
 
-Q = simplify(W/(1-W)/G);
+Q = simplify(W/G/(1-W), 'IgnoreAnalyticConstraints', true, 'Steps', 10);
+
 disp('Q :');
 disp(latex(Q));
 disp('=============================================');
 
-Q = simplify(subs(simplify(W/expand(1-W))/G, ns, sol_ns));
+Q = simplify(subs(simplify(W/expand(1-W))/G, ns, sol_ns), 'IgnoreAnalyticConstraints', true, 'Steps', 10);

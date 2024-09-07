@@ -11,6 +11,10 @@ TP = sym('T_p', {'real', 'positive'});
 TG = sym('T_g', {'real', 'positive'});
 w = sym('w', {'real', 'positive'});
 
+ns = sym('eta_s', {'real', 'positive'});
+lam = sym('lambda', {'real', 'positive'});
+N = sym('N', {'real', 'positive'});
+
 
 
 
@@ -31,5 +35,3 @@ disp('G: ')
 disp(latex(G));
 disp('=============================================');
 
-%% default controller parameters:
-lam = 

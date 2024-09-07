@@ -1,0 +1,34 @@
+function Q_pid = create_symbolic_PID(Gt, expansion_point, Mn, R)
+
+p = sym('s');
+KP = sym('K_p', {'real', 'positive'});
+TP = sym('T_p', {'real', 'positive'});
+TG = sym('T_g', {'real', 'positive'});
+
+Gp = KP/(TP*p+1);
+Gg = 1/(TG*p + 1);
+G = Gt*Gp*Gg;
+
+
+ns = sym('eta_s', {'real', 'positive'});
+lam = sym('lambda', {'real', 'positive'});
+N = sym('N', {'real', 'positive'});
+
+sol_ns = solve((lam*p + 1)*(lam/N*p+1)^3-(ns*p+1), ns, ...
+    'ReturnConditions', true).eta_s;
+
+W = (ns*p+1)/(lam*p+1)/(lam\N*p+1)^3;
+Q = simplify(subs(simplify(W/expand(1-W))/G, ns, sol_ns));
+
+TF = sym('T_f', {'real', 'positive'});
+
+
+f3 = taylor(p*(TF*p+1)*Q,p,'ExpansionPoint', expansion_point, 'order',3);
+coeff_list = coeffs(f3);
+
+Tf = coeff_list(2)/(Mn + 1/);
+
+Q_pid = f3/(p*(TF*p+1));
+
+end
+

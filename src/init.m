@@ -2,6 +2,9 @@ clear variables;
 close all;
 clc;
 
+%all subfolders to path
+addpath(genpath(pwd));
+
 %% Parameters:
 types = {'non-reheated', 'reheated', 'hydro'};
 
@@ -42,6 +45,7 @@ elseif type == types{3}
     Tp = 6;
     Tw = 4;
     Tg = 0.2;
+    R = 0.05;
 
 end
 
@@ -58,3 +62,8 @@ r = 0;
 sigma_n = 0;
 Q_num = [0];
 Q_den = [1 1];
+
+%% Controller design init
+design_init;
+
+

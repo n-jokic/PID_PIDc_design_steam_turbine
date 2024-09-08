@@ -51,7 +51,7 @@ nonlincon = @(x) deal([], f_opt(x));
 lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
-ub = [5, 5, 3.8, 10, 10];  % No upper bounds
+ub = [5, 5, 5, 20, 10];  % No upper bounds
 
 x0 = [2.052, .6947, 3.756/2, 6.3, 6.3/7]/1.1;
 % Set options for fmincon
@@ -59,7 +59,7 @@ options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization
     'Algorithm', 'Interior-point', ...              % Use SQP algorithm
     'MaxIterations', 10000, ...           % Increase the number of iterations
-    'MaxFunctionEvaluations', 50000, ...  % Increase the number of function evaluations
+    'MaxFunctionEvaluations', 100000, ...  % Increase the number of function evaluations
     'FunctionTolerance', 1e-10, ...      % Tighten tolerance on the function value
     'StepTolerance', 1e-12, ...          % Tighten tolerance on the step size
     'ConstraintTolerance', 1e-12); 
@@ -73,5 +73,7 @@ kd = x_opt(2);
 ki = x_opt(3);
 tf = kd/Mn;
 Qpid_optf = 1/(tf*s + 1)/s*(ki + k*s + kd*s^2);
+
+disp(x_opt)
 end
 

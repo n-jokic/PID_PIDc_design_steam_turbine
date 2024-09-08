@@ -102,7 +102,7 @@ J = iecost(e, t, idx);
 
 function C = pidctrl(K, Ki, Kd, Tf)
 % PIDCTRL   Calculates PID controller transfer function.
-C = tf([Kd, K, Ki], [Tf^2/2, Tf, 1, 0]);
+C = tf([Kd, K, Ki], [Tf, 1, 0]);
 
 function [K, Ki, Kd, Tf, Wcg] = sbtuning(G, Mn, Ms)
 % SBTUNING  Stability-based tuning method for real PID controllers.

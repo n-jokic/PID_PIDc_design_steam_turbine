@@ -1,6 +1,6 @@
 
 legend_names = {'PID_{c_1}', 'PID_{s_0= 0}', 'PID_{s_0=\lambda^{-1}}', ...
-    'PID_{opt_t}'};
+    'PID_{opt_t}', 'PID_{opt_f}'};
 
 f1 = figure();
 f1.Name = 'fm_comparison';
@@ -73,6 +73,22 @@ out_pid_opt = sim('plant_model_fbl');
     f1,f2, out_pid_opt, linewidth, colour, style, td, t1, t2);
 
 disp('Q_pid_opt data: ');
+disp([IAE, IE, ITAE, TVd]);
+disp('===================================');
+
+
+[Q_num, Q_den] = tfdata(Qpid_optf);
+Q_num = Q_num{1};
+Q_den = Q_den{1};
+
+linewidth = 1;
+colour = 'g';
+style = '-.';
+out_pid_opt = sim('plant_model_fbl');
+[IAE, IE, ITAE, TVd] = process_sim_data(...
+    f1,f2, out_pid_opt, linewidth, colour, style, td, t1, t2);
+
+disp('Q_pid_optf data: ');
 disp([IAE, IE, ITAE, TVd]);
 disp('===================================');
 

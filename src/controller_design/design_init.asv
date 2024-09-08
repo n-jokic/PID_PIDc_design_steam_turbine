@@ -34,9 +34,11 @@ end
 Gp = KP/(TP*p+1);
 gp = Kp/(Tp*p+1);
 Gg = 1/(TG*p + 1);
-gg = (1/(Tg*p + 1));
+
 
 G = Gt*Gp*Gg;
-g = gt*gp*gg;
 
+disp('G: ')
+disp(latex(G));
+disp('=============================================');
 

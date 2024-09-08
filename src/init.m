@@ -49,10 +49,13 @@ elseif type == types{3}
 
 end
 
+s = tf('s');
+
+Gm = 1/(Tg*s+1)*Kp/(Tp*s+1)*(1+(-Tw+c*Tr)*s)/(1+(Tr+Tt+0.5*Tw)*s+Tt*Tr*s);
 %% Simulation setup:
 % step signals
-td = 0; 
-d = 0;
+td = 1; 
+d = -1;
 
 tr = 0;
 r = 0;
@@ -63,7 +66,11 @@ sigma_n = 0;
 Q_num = [0];
 Q_den = [1 1];
 
+t_end = 10;
 %% Controller design init
 design_init;
 
+%% Save setup
+SAVE_PLOTS = false;
+PATH = '..\latex\slike';
 

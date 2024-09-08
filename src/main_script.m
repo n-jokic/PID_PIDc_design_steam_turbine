@@ -1,6 +1,7 @@
 if ~exist('selector', 'var')
     init;
 end
+close all;
 %%
 n = 20;
 lambda = 0.6;
@@ -9,86 +10,79 @@ Mn = 120;
 
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
+Qpid_lam = create_symbolic_PID(Gt, 1.5/lambda, Mn, R);
 %%
-if type == types{1}
-    
-    % param subs
-    Qpid = subs(Qpid, KP, Kp);
-    Qpid = subs(Qpid, TP, Tp);
-    Qpid = subs(Qpid, TT, Tt);
-    Qpid = subs(Qpid, TG, Tg);
-    Qpid = subs(Qpid, lam, lambda);
-    Qpid = subs(Qpid, N, n);
-    
-    %conversion to tf
-    Qpid = sym_to_tf(Qpid);
+convert_all_to_tf;
+%% Мs/Mt: 
+f = figure();
+f.Name = 'Ms_Mt_pidc';
+C = Qpidc-1/R;  
+find_Ms_Mt(Gm, C, true);
 
-    % param subs
-    Qpidc = subs(Qpidc, KP, Kp);
-    Qpidc = subs(Qpidc, TP, Tp);
-    Qpidc = subs(Qpidc, TT, Tt);
-    Qpidc = subs(Qpidc, TG, Tg);
-    Qpidc = subs(Qpidc, lam, lambda);
-    Qpidc = subs(Qpidc, N, n);
-    
-    %conversion to tf
-    Qpidc = sym_to_tf(Qpidc);
-
-
-  
-
-elseif type == types{2}
-
-    % param subs
-    Qpid = subs(Qpid, KP, Kp);
-    Qpid = subs(Qpid, TP, Tp);
-    Qpid = subs(Qpid, TT, Tt);
-    Qpid = subs(Qpid, TG, Tg);
-    Qpid = subs(Qpid, TR, Tr);
-    Qpid = subs(Qpid, C, c);
-    Qpid = subs(Qpid, lam, lambda);
-    Qpid = subs(Qpid, N, n);
-    
-    %conversion to tf
-    Qpid = sym_to_tf(Qpid);
-
-    % param subs
-    Qpidc = subs(Qpidc, KP, Kp);
-    Qpidc = subs(Qpidc, TP, Tp);
-    Qpidc = subs(Qpidc, TT, Tt);
-    Qpidc = subs(Qpidc, TG, Tg);
-    Qpidc = subs(Qpidc, TR, Tr);
-    Qpidc = subs(Qpidc, C, c);
-    Qpidc = subs(Qpidc, lam, lambda);
-    Qpidc = subs(Qpidc, N, n);
-    
-    %conversion to tf
-    Qpidc = sym_to_tf(Qpidc);
-
-   
-
-elseif type == types{3}
-    
-    % param subs
-    Qpid = subs(Qpid, KP, Kp);
-    Qpid = subs(Qpid, TP, Tp);
-    Qpid = subs(Qpid, TW, Tw);
-    Qpid = subs(Qpid, TG, Tg);
-    Qpid = subs(Qpid, lam, lambda);
-    Qpid = subs(Qpid, N, n);
-    
-    %conversion to tf
-    Qpid = sym_to_tf(Qpid);
-
-    % param subs
-    Qpidc = subs(Qpidc, KP, Kp);
-    Qpidc = subs(Qpidc, TP, Tp);
-    Qpidc = subs(Qpidc, TW, Tw);
-    Qpidc = subs(Qpidc, TG, Tg);
-    Qpidc = subs(Qpidc, lam, lambda);
-    Qpidc = subs(Qpidc, N, n);
-    
-    %conversion to tf
-    Qpidc = sym_to_tf(Qpidc);
+if SAVE_PLOTS
+    save_plots(f, {f.Name}, PATH)
 end
 
+f = figure();
+f.Name = 'Ms_Mt_pid';
+C = Qpid-1/R;  
+find_Ms_Mt(Gm, C, true);
+
+if SAVE_PLOTS
+    save_plots(f, {f.Name}, PATH)
+end
+
+
+f = figure();
+f.Name = 'Ms_Mt_pid_lam';
+C = Qpid_lam-1/R;  
+find_Ms_Mt(Gm, C, true);
+
+if SAVE_PLOTS
+    save_plots(f, {f.Name}, PATH)
+end
+
+
+
+%%
+
+id = 'default';
+sigma_n = 0;
+t1 = 0.9;
+t2 = 5;
+run_simulations_and_process_data;
+
+%% robustness: 
+Tt_normal = Tt;
+Tp_normal = Tp;
+Tg_normal = Tg;
+Kp_normal = Kp;
+
+id = '+50';
+
+scale = 1.5;
+Tt = scale*Tt_normal;
+Tp = scale*Tp_normal;
+Tg = scale*Tg_normal;
+Kp = scale*Kp_normal;
+run_simulations_and_process_data;
+
+id = '-50';
+
+scale = 0.5;
+Tt = scale*Tt_normal;
+Tp = scale*Tp_normal;
+Tg = scale*Tg_normal;
+Kp = scale*Kp_normal;
+run_simulations_and_process_data;
+
+scale = 1;
+Tt = scale*Tt_normal;
+Tp = scale*Tp_normal;
+Tg = scale*Tg_normal;
+Kp = scale*Kp_normal;
+
+%% with noise: 
+sigma_n = 0.001;
+id = 'noise';
+run_simulations_and_process_data;

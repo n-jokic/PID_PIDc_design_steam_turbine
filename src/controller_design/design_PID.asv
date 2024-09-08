@@ -1,6 +1,0 @@
-design_PIDc;
-clc;
-%% 
-
-
-f3 = taylor(Q,p,'ExpansionPoint',0, 'order',3);

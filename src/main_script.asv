@@ -7,21 +7,20 @@ n = 20;
 lambda = 0.6;
 expansion_point = 0;
 Mn = 120;
-Ms = 1.6;
+Ms = 1.326;
 
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
 Qpid_lam = create_symbolic_PID(Gt, 1.5/lambda, Mn, R);
-answer = otPID(Gm/(1+Gm/R), 1, Mn, Ms, 3);
+answer = otPID(Gm/(1+Gm/R), 1, Mn, Ms, 1);
 Qpid_opt = answer;
-
+%%
 convert_all_to_tf;
 %% Мs/Mt: 
 f = figure();
 f.Name = 'Ms_Mt_pidc';
-C = Qpidc;  
-H = 1+Gm/R;
-find_Ms_Mt(Gm, H, C, true);
+C = Qpidc-1/R;  
+find_Ms_Mt(Gm, C, true);
 
 if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)
@@ -29,8 +28,8 @@ end
 
 f = figure();
 f.Name = 'Ms_Mt_pid';
-C = Qpid; 
-find_Ms_Mt(Gm, H, C, true);
+C = Qpid-1/R;  
+find_Ms_Mt(Gm, C, true);
 
 if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)
@@ -39,8 +38,8 @@ end
 
 f = figure();
 f.Name = 'Ms_Mt_pid_lam';
-C = Qpid_lam;  
-find_Ms_Mt(Gm, H, C, true);
+C = Qpid_lam-1/R;  
+find_Ms_Mt(Gm, C, true);
 
 if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)
@@ -49,8 +48,7 @@ end
 f = figure();
 f.Name = 'Ms_Mt_pid_opt';
 C = Qpid_opt;  
-H = 1;
-find_Ms_Mt(Gm/(1+Gm/R), H, C, true);
+find_Ms_Mt(Gm, C, true);
 
 if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)

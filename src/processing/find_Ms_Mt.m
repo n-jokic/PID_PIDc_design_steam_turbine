@@ -1,5 +1,5 @@
-function  [Ms, inS, amS, Mt, inT, amT, wout] = find_Ms_Mt(G, C, draw_plot)
-S = 1/(1+C*G);
+function  [Ms, inS, amS, Mt, inT, amT, wout] = find_Ms_Mt(G, H, C, draw_plot)
+S = H/(1+C*G);
 T = 1-S;
 if ~exist("draw_plot", 'var')
     draw_plot = false;

@@ -51,13 +51,13 @@ nonlincon = @(x) deal([], f_opt(x));
 lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
-ub = [5, 2, 12, 10, 10];  % No upper bounds
+ub = [10, 2, 20, 30, 30];  % No upper bounds
 
-x0 = [2.052, .6947, 3.756/2, 6.3, 6.3/7]/1.1;
+x0 = [2.052, .6947, 3.756, 6.3, 6.3/7];
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization
-    'Algorithm', 'active-set', ...              % Use SQP algorithm
+    'Algorithm', 'interior-point', ...              % Use SQP algorithm
     'MaxIterations', 2000, ...           % Increase the number of iterations
     'MaxFunctionEvaluations', 20000, ...  % Increase the number of function evaluations
     'FunctionTolerance', 1e-10, ...      % Tighten tolerance on the function value

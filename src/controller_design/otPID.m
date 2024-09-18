@@ -12,7 +12,7 @@ params0 = [K0; Ki0; Kd0];
 w = 0 : Wcg/200 : 2*Wcg;
 
 % Calculating the equidistant vector of relevant time instances.
-[y, t]=step(feedback(minreal(C0*G), 1),0:0.001: t_end);
+[y, t]=step(minreal(H/(1+minreal(C0*G))),0:0.001: t_end);
 dt = t(2)-t(1);
 t  = 0:dt:t(end);
 
@@ -65,13 +65,13 @@ C = pidctrl(K, Ki, Kd, Tf);
 
 fprintf('Resulting/Target Ms value : %d / %d\n', Ms_result, Ms);
 
-Gf = minreal(G*SYS);
+Gf = minreal(H*SYS);
 figure, step(Gf, t);
 xlabel 'time'
 ylabel 'response'
 title 'Response to disturbance step signal'
 
-Gr = minreal(C*Gf);
+Gr = minreal(C*G*SYS);
 figure, step(tf([Ki],[1 0])*Gr/C, t);
 xlabel 'time'
 ylabel 'response'
@@ -91,7 +91,7 @@ function J = objfunc(G, H, K, Ki, Kd, Tf, t, idx, Ms, w)
 
 C = pidctrl(K, Ki, Kd, Tf);
 [Ms_current, SYS] = calcms(G, H, C, w);
-e =step(minreal(SYS*G), t);
+e =step(minreal(H*SYS), t);
 
 % The unconstrained optimality criteria
 J = iecost(e, t, idx);
@@ -134,11 +134,11 @@ switch idx
     case 2  % IAE
          J=sum(abs(e)*dt);
          %J1=sum(abs(e)*dt)
-         %J=(sum(abs(e)*dt+(1-2*0.85)*e*dt))/2;
+         J=(sum(abs(e)*dt+(1-2*0.85)*e*dt))/2;
     case 3  % ITSE
         J=(t.*e'*dt)*e;
     case 4  % ITAE
-        J=sum((t.^4)'.*abs(e)*dt);
+        J=sum((t.^2)'.*abs(e)*dt);
         
 end
 
@@ -146,7 +146,7 @@ end
 function [Ms, SYS] = calcms(G, H, C, w)
 % CALCMS    Calculates Ms parameter and related transfer function SYS using a set of relevant
 % vectors w.
-SYS = minreal(H/(1+G*C));
+SYS = minreal(1/(1+G*C));
 %SYS1 = minreal(G*C/(1+G*C));
 [magS,~,~] = bode(SYS);
 m(1, :) = magS(1, 1, :);

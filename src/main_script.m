@@ -12,15 +12,15 @@ Ms = 2;
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
 Qpid_lam = create_symbolic_PID(Gt, 1/lambda, Mn, R);
-answer = otPID(minreal(Gm/(1+Gm/R)), 1, Mn, Ms, 4, 3);
+answer = otPID(minreal(Gm/(1+Gm/R)), Gp, Mn, Ms, 4, 4);
 Qpid_opt = answer;
 convert_all_to_tf;
 
 %%
 close all;
-Ms = 2;
-Q = 1.01;
-Qpid_optf = optPIDf(Ms, Mn, Q, g, p, s, R);
+Ms =2;
+Q = .7;
+Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R);
 
 f = figure();
 f.Name = 'Ms_Mt_pid_optf';
@@ -35,9 +35,9 @@ end
 disp(Qpid_optf.Numerator)
 disp(Qpid_opt.Numerator)
 
-figure, step(feedback(feedback(Gm, 1/R), Qpid_opt))
+figure, step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_opt)))
 hold on;
-step(feedback(feedback(Gm, 1/R), Qpid_optf), 'k--')
+step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_optf)), 'k--')
 
 
 

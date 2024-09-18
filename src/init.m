@@ -52,6 +52,7 @@ end
 s = tf('s');
 
 Gm = 1/(Tg*s+1)*Kp/(Tp*s+1)*(1+(-Tw+c*Tr)*s)/(1+(Tr+Tt+0.5*Tw)*s+Tt*Tr*s);
+Gp = 1/(1+(-Tw+c*Tr)*s)/(1+(Tr+Tt+0.5*Tw)*s+Tt*Tr*s);
 %% Simulation setup:
 % step signals
 td = 1; 

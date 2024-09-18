@@ -1,4 +1,4 @@
-function Qpid_optf = optPIDf(Ms, Mn, Q, G, p, s, R)
+function Qpid_optf = optPIDf(Ms, Mn, Q, G, Gp, p, s, R)
 %Ms = 1.5;
 %Mn = 120;
 %Q = 1.1;
@@ -10,19 +10,14 @@ KD = sym('K_d', {'real', 'positive'});
 wx = sym('w_x', {'real', 'positive'});
 w = sym('w', {'real', 'positive'});
 
-G_m = G/(1+G/R);
-
-[N,D] = numden(G_m);
-Dc = coeffs(D,p);
-NN = N/Dc(end);
-ND = D/Dc(end);
-G_m = NN/ND;
+G_m = R*G/(R+G);
 
 C = 1/(TF*p + 1)*(KI + KD*p^2 + K*p)/p;
 C = subs(C, TF, KD/Mn);
 
 C = (subs(C, p, 1i*w));
 G_m = subs(G_m, p, 1i*w);
+G_p = subs(Gp, p, 1i*w);
 
 u = real(C*G_m);
 v = imag(C*G_m);
@@ -31,12 +26,12 @@ fs = (1+u)^2 + v^2;
 f1 = sqrt(fs) - 1/Ms; 
 f2 = diff(fs, w);
 
-u_m = real(KI*G_m);
-v_m = imag(KI*G_m);
+u_m = real(G_p);
+v_m = imag(G_p);
 
-f3 = sqrt((u_m^2 + v_m^2)/fs)/w - Q;
+f3 = KI*sqrt((u_m^2 + v_m^2)/fs)/w - Q;
 f3 = subs(f3, w, wx);
-f4 = subs((u_m^2 + v_m^2)/fs/w, w, wx);
+f4 = subs(KI^2*(u_m^2 + v_m^2)/fs/w/w, w, wx);
 f4 = diff(f4, wx);
 
 %% Converting symbolic_eq to matlab functions:
@@ -53,7 +48,7 @@ lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
 ub = [10, 2, 20, 30, 30];  % No upper bounds
 
-x0 = [2.052, .6947, 3.756, 6.3, 6.3/7];
+x0 = [2.052/1.6, .6947, 3.756, 6.3, 6.3/5];
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization

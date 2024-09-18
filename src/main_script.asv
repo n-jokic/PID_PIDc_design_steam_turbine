@@ -19,7 +19,7 @@ convert_all_to_tf;
 %%
 close all;
 Ms = 1.6;
-zeta = 2;
+Q = 1.005;
 Qpid_optf = optPIDf(Ms, Mn, Q, g, p, s, R);
 
 f = figure();

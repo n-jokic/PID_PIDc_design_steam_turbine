@@ -9,7 +9,7 @@ pidctrl(K0,Ki0,Kd0,Tf0);
 params0 = [K0; Ki0; Kd0];
 
 % Calculating the vector of relevant frequencies.
-w = 0 : Wcg/2000 : 2*Wcg;
+w = 0 : Wcg/200 : 2*Wcg;
 
 % Calculating the equidistant vector of relevant time instances.
 [y, t]=step(feedback(minreal(C0*G), 1),0:0.001: t_end);

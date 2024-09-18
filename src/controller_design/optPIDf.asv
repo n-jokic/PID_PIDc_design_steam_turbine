@@ -1,4 +1,4 @@
-function Qpid_optf = optPIDf(Ms, Mn, zeta, G, p, s, R)
+function Qpid_optf = optPIDf(Ms, Mn, Q, G, p, s, R)
 %Ms = 1.5;
 %Mn = 120;
 %Q = 1.1;
@@ -10,34 +10,34 @@ KD = sym('K_d', {'real', 'positive'});
 wx = sym('w_x', {'real', 'positive'});
 w = sym('w', {'real', 'positive'});
 
-G_m = simplify(G/(1+G/R));
+G_m = G/(1+G/R);
 
 [N,D] = numden(G_m);
 Dc = coeffs(D,p);
 NN = N/Dc(end);
 ND = D/Dc(end);
-G_m = vpa(NN/ND, 5);
+G_m = NN/ND;
 
 C = 1/(TF*p + 1)*(KI + KD*p^2 + K*p)/p;
 C = subs(C, TF, KD/Mn);
 
-C = vpa((subs(C, p, 1i*w)), 5);
-G_m = vpa(subs(G_m, p, 1i*w), 5);
+C = (subs(C, p, 1i*w));
+G_m = subs(G_m, p, 1i*w);
 
-u = vpa(real(C*G_m), 3);
-v = vpa(imag(C*G_m), 3);
+u = real(C*G_m);
+v = imag(C*G_m);
 
+fs = (1+u)^2 + v^2;
+f1 = sqrt(fs) - 1/Ms; 
+f2 = diff(fs, w);
 
-f1 = vpa((1+u)^2 + v^2 - 1/Ms^2, 5); 
-f2 = vpa(diff(f1, w), 5);
+u_m = real(KI*G_m);
+v_m = imag(KI*G_m);
 
-u_m = vpa(real(G_m), 5);
-v_m = vpa(imag(G_m), 5);
-
-f3 = sqrt((u_m^2 + v_m^2)/(u^2 + v^2))- (1/2/zeta);
-f3 = vpa(subs(f3, w, wx), 5);
-f4 = subs(sqrt((u_m^2 + v_m^2)/(u^2 + v^2)), w, wx);
-f4 = vpa(diff(f4, wx), 5) + (1/2/zeta);
+f3 = (u_m^2 + v_m^2) - Q^2*fs*w;
+f3 = subs(f3, w, wx);
+f4 = subs((u_m^2 + v_m^2)/fs/w, w, wx);
+f4 = diff(f4, wx);
 
 %% Converting symbolic_eq to matlab functions:
 
@@ -51,18 +51,18 @@ nonlincon = @(x) deal([], f_opt(x));
 lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
-ub = [5, 5, 5, 20, 10];  % No upper bounds
+ub = [5, 2, 12, 10, 10];  % No upper bounds
 
-x0 = [2.028, .4078, 4.773, 6.3, 6.3/1.5];
+x0 = [2.052, .6947, 3.756/2, 6.3, 6.3/7]/1.1;
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization
     'Algorithm', 'active-set', ...              % Use SQP algorithm
-    'MaxIterations', 10000, ...           % Increase the number of iterations
-    'MaxFunctionEvaluations', 100000, ...  % Increase the number of function evaluations
-    'FunctionTolerance', 1e-20, ...      % Tighten tolerance on the function value
+    'MaxIterations', 2000, ...           % Increase the number of iterations
+    'MaxFunctionEvaluations', 20000, ...  % Increase the number of function evaluations
+    'FunctionTolerance', 1e-10, ...      % Tighten tolerance on the function value
     'StepTolerance', 1e-20, ...          % Tighten tolerance on the step size
-    'ConstraintTolerance', 1e-20); 
+    'ConstraintTolerance', 1e-12); 
 [x_opt, ~] = fmincon(objective, x0, [], [], [], [], lb, ub, nonlincon, options);
 
 

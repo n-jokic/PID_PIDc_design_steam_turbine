@@ -12,14 +12,14 @@ Ms = 1.6;
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
 Qpid_lam = create_symbolic_PID(Gt, 1.5/lambda, Mn, R);
-answer = otPID(minreal(Gm/(1+Gm/R)), 1, Mn, Ms, 1);
+answer = otPID(minreal(Gm/(1+Gm/R)), 1, Mn, Ms, 4, 5);
 Qpid_opt = answer;
 convert_all_to_tf;
 
 %%
 close all;
-Ms = 1.4;
-Q = .4;
+Ms = 1.6;
+zeta = 1.01;
 Qpid_optf = optPIDf(Ms, Mn, Q, g, p, s, R);
 
 f = figure();

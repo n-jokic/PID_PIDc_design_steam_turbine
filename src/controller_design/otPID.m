@@ -1,4 +1,4 @@
-function [C, fval, K, Ki, Kd, Tf] = otPID (G, H, Mn, Ms, idx_type)
+function [C, fval, K, Ki, Kd, Tf] = otPID (G, H, Mn, Ms, idx_type,t_end)
 % Milan R. Rapaic, Tomislav B. Sekara, 2008-11-26..30
 
 % The initial, stability-based tuning of the PID controller.
@@ -12,7 +12,7 @@ params0 = [K0; Ki0; Kd0];
 w = 0 : Wcg/2000 : 2*Wcg;
 
 % Calculating the equidistant vector of relevant time instances.
-[y, t]=step(feedback(minreal(C0*G), 1),0:0.001:60);
+[y, t]=step(feedback(minreal(C0*G), 1),0:0.001: t_end);
 dt = t(2)-t(1);
 t  = 0:dt:t(end);
 
@@ -138,7 +138,7 @@ switch idx
     case 3  % ITSE
         J=(t.*e'*dt)*e;
     case 4  % ITAE
-        J=sum((t.^1)'.*abs(e)*dt);
+        J=sum((t.^4)'.*abs(e)*dt);
         
 end
 

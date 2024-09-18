@@ -12,13 +12,14 @@ Ms = 1.6;
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
 Qpid_lam = create_symbolic_PID(Gt, 1.5/lambda, Mn, R);
-answer = otPID(Gm/(1+Gm/R), 1, Mn, Ms, 3);
+answer = otPID(minreal(Gm/(1+Gm/R)), 1, Mn, Ms, 4, 5);
 Qpid_opt = answer;
 convert_all_to_tf;
 
 %%
-Ms = 1;
-Q = 1.05;
+close all;
+Ms = 1.6;
+zeta = 2;
 Qpid_optf = optPIDf(Ms, Mn, Q, g, p, s, R);
 
 f = figure();
@@ -31,7 +32,8 @@ if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)
 end
 
-disp(Qpid_optf)
+disp(Qpid_optf.Numerator)
+disp(Qpid_opt.Numerator)
 
 figure, step(feedback(feedback(Gm, 1/R), Qpid_opt))
 hold on;

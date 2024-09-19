@@ -19,8 +19,8 @@ convert_all_to_tf;
 %%
 close all;
 Ms =2;
-Q = .7;
-Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R);
+Q = 1.028;
+Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R, .33);
 
 f = figure();
 f.Name = 'Ms_Mt_pid_optf';
@@ -39,6 +39,9 @@ figure, step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_opt)))
 hold on;
 step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_optf)), 'k--')
 
+
+figure, bode(minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_opt)))
+hold on, bode(minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_optf)))
 
 
 %% Мs/Mt: 

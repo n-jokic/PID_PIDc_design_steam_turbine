@@ -1,4 +1,4 @@
-function Qpid_optf = optPIDf(Ms, Mn, Q, G, Gp, p, s, R)
+function Qpid_optf = optPIDf(Ms, Mn, Q, G, Gp, p, s, R, zeta)
 %Ms = 1.5;
 %Mn = 120;
 %Q = 1.1;
@@ -19,6 +19,10 @@ C = (subs(C, p, 1i*w));
 G_m = subs(G_m, p, 1i*w);
 G_p = subs(Gp, p, 1i*w);
 
+G_p = subs(G_p, KD, K/sqrt(4*zeta*KI));
+G_m = subs(G_m, KD, K/sqrt(4*zeta*KI));
+C = subs(C, KD, K/sqrt(4*zeta*KI));
+
 u = real(C*G_m);
 v = imag(C*G_m);
 
@@ -37,18 +41,18 @@ f4 = diff(f4, wx);
 %% Converting symbolic_eq to matlab functions:
 
 f = [f1; f2; f3; f4];
-f_opt = matlabFunction(f, 'Vars', {[K, KD, KI, w, wx]});
-objective = @(x) -x(1);
+f_opt = matlabFunction(f, 'Vars', {[K, KI, w, wx]});
+objective = @(x) -x(3);
 
 nonlincon = @(x) deal([], f_opt(x));
 
 % Set the lower bounds for all variables to 0 (ensuring positivity)
-lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
+lb = [0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
-ub = [10, 2, 20, 30, 30];  % No upper bounds
+ub = [inf, inf, inf, inf];  % No upper bounds
 
-x0 = [2.052/1.6, .6947, 3.756, 6.3, 6.3/5];
+x0 = [2.8, 8, 13, 13/5];
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization
@@ -64,8 +68,9 @@ options = optimoptions('fmincon', ...
 
 %%
 k = x_opt(1);
-kd = x_opt(2);
+%kd = x_opt(2);
 ki = x_opt(3);
+kd = k/sqrt(4*zeta*ki);
 tf = kd/Mn;
 Qpid_optf = 1/(tf*s + 1)/s*(ki + k*s + kd*s^2);
 

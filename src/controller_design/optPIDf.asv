@@ -26,19 +26,19 @@ fs = (1+u)^2 + v^2;
 f1 = sqrt(fs) - 1/Ms; 
 f2 = diff(fs, w);
 
-u_m = real(KG_p);
-v_m = imag(KI*G_p);
+u_m = real(G_p);
+v_m = imag(G_p);
 
-f3 = sqrt((u_m^2 + v_m^2)/fs)/w - Q;
+f3 = KI*sqrt((u_m^2 + v_m^2)/fs)/w - Q;
 f3 = subs(f3, w, wx);
-f4 = subs((u_m^2 + v_m^2)/fs/w/w, w, wx);
+f4 = subs(KI^2*(u_m^2 + v_m^2)/fs/w/w, w, wx);
 f4 = diff(f4, wx);
 
 %% Converting symbolic_eq to matlab functions:
 
 f = [f1; f2; f3; f4];
 f_opt = matlabFunction(f, 'Vars', {[K, KD, KI, w, wx]});
-objective = @(x) -x(3);
+objective = @(x) -x(1);
 
 nonlincon = @(x) deal([], f_opt(x));
 
@@ -48,7 +48,7 @@ lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
 ub = [10, 2, 20, 30, 30];  % No upper bounds
 
-x0 = [2.052, .6947, 3.756, 6.3, 6.3/5];
+x0 = [2.8, 1.1, 3.756, 6.3, 6.3/2]/2;
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization

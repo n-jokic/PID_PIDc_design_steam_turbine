@@ -7,7 +7,7 @@ n = 20;
 lambda = 0.6;
 expansion_point = 0;
 Mn = 120;
-Ms = 2;
+Ms = 2.455;
 
 Qpidc = create_symbolic_PIDc(Gt);
 Qpid = create_symbolic_PID(Gt, expansion_point, Mn, R);
@@ -18,15 +18,16 @@ convert_all_to_tf;
 
 %%
 close all;
-Ms = 1.6;
-Q = 1.05;
-Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R);
-
+Ms =2;
+Q = 1.01;
+% zbog necega ne radi u matlabu, optimizacija se radi u Maple...
+% Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R);
+Qpid_optf = (5.36170457156741+(13.4161273886320)/s+(.969121109466429)*s)/((0.807600924426141e-2)*s+1);
 f = figure();
 f.Name = 'Ms_Mt_pid_optf';
 C = Qpid_optf;  
 H = 1;
-find_Ms_Mt(feedback(Gm, 1/R), H, C, true);
+find_Ms_Mt(minreal(feedback(Gm, 1/R)), H, C, true);
 
 if SAVE_PLOTS
     save_plots(f, {f.Name}, PATH)
@@ -39,6 +40,9 @@ figure, step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_opt)))
 hold on;
 step(-minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_optf)), 'k--')
 
+
+figure, bode(minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_opt)))
+hold on, bode(minreal(Gp/(1+feedback(Gm, 1/R)*Qpid_optf)))
 
 
 %% Мs/Mt: 

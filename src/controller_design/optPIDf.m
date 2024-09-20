@@ -1,4 +1,4 @@
-function Qpid_optf = optPIDf(Ms, Mn, Q, G, Gp, p, s, R, zeta)
+function Qpid_optf = optPIDf(Ms, Mn, Q, G, Gp, p, s, R)
 %Ms = 1.5;
 %Mn = 120;
 %Q = 1.1;
@@ -9,6 +9,7 @@ KI = sym('K_i', {'real', 'positive'});
 KD = sym('K_d', {'real', 'positive'});
 wx = sym('w_x', {'real', 'positive'});
 w = sym('w', {'real', 'positive'});
+zeta = sym('zeta', {'real', 'positive'});
 
 G_m = R*G/(R+G);
 
@@ -19,21 +20,21 @@ C = (subs(C, p, 1i*w));
 G_m = subs(G_m, p, 1i*w);
 G_p = subs(Gp, p, 1i*w);
 
-G_p = subs(G_p, KD, K/sqrt(4*zeta*KI));
-G_m = subs(G_m, KD, K/sqrt(4*zeta*KI));
-C = subs(C, KD, K/sqrt(4*zeta*KI));
+G_p = subs(G_p, KD, K^2/4/zeta^2/KI);
+G_m = subs(G_m, KD, K^2/4/zeta^2/KI);
+C = subs(C, KD, K^2/4/zeta^2/KI);
 
 u = real(C*G_m);
 v = imag(C*G_m);
 
 fs = (1+u)^2 + v^2;
-f1 = sqrt(fs) - 1/Ms; 
+f1 = fs - 1/Ms^2; 
 f2 = diff(fs, w);
 
 u_m = real(G_p);
 v_m = imag(G_p);
 
-f3 = KI*sqrt((u_m^2 + v_m^2)/fs)/w - Q;
+f3 = KI^2*(u_m^2 + v_m^2) - Q^2*fs*w^2;
 f3 = subs(f3, w, wx);
 f4 = subs(KI^2*(u_m^2 + v_m^2)/fs/w/w, w, wx);
 f4 = diff(f4, wx);
@@ -41,18 +42,18 @@ f4 = diff(f4, wx);
 %% Converting symbolic_eq to matlab functions:
 
 f = [f1; f2; f3; f4];
-f_opt = matlabFunction(f, 'Vars', {[K, KI, w, wx]});
+f_opt = matlabFunction(f, 'Vars', {[K, KI, zeta, w, wx]});
 objective = @(x) -x(3);
 
 nonlincon = @(x) deal([], f_opt(x));
 
 % Set the lower bounds for all variables to 0 (ensuring positivity)
-lb = [0, 0, 0, 0];  % Lower bound: all variables must be >= 0
+lb = [0, 0, 0, 0, 0];  % Lower bound: all variables must be >= 0
 
 % No upper bounds, so set ub to [] (no constraint on the upper bound)
-ub = [inf, inf, inf, inf];  % No upper bounds
+ub = [3, 13, 1.1, 30, 30];  % No upper bounds
 
-x0 = [2.8, 8, 13, 13/5];
+x0 = [2, 8, .4, 17, 17/2]/1.1;
 % Set options for fmincon
 options = optimoptions('fmincon', ...
     'Display', 'iter', ...               % Show progress during optimization
@@ -69,8 +70,9 @@ options = optimoptions('fmincon', ...
 %%
 k = x_opt(1);
 %kd = x_opt(2);
-ki = x_opt(3);
-kd = k/sqrt(4*zeta*ki);
+ki = x_opt(2);
+z = x_opt(3);
+kd = k^2/4/z^2/ki;
 tf = kd/Mn;
 Qpid_optf = 1/(tf*s + 1)/s*(ki + k*s + kd*s^2);
 

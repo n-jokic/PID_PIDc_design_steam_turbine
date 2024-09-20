@@ -19,9 +19,10 @@ convert_all_to_tf;
 %%
 close all;
 Ms =2;
-Q = 1.028;
-Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R, .33);
-
+Q = 1.01;
+% zbog necega ne radi u matlabu, optimizacija se radi u Maple...
+% Qpid_optf = optPIDf(Ms, Mn, Q, g, gp, p, s, R);
+Qpid_optf = (4.09955680486898+(7.01935622117693)/s+(.791563830480272)*s)/((0.659636525294685e-2)*s+1);
 f = figure();
 f.Name = 'Ms_Mt_pid_optf';
 C = Qpid_optf;  

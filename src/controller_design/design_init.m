@@ -1,4 +1,4 @@
-clc;
+    clc;
 close all;
 %Run init in src first!
 %%

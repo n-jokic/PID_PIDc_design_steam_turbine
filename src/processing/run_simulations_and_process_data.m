@@ -61,7 +61,7 @@ disp([IAE, IE, ITAE, TVd]);
 disp('===================================');
 
 
-[Q_num, Q_den] = tfdata(Qpid_opt);
+[Q_num, Q_den] = tfdata(Qpid_opt-1/R);
 Q_num = Q_num{1};
 Q_den = Q_den{1};
 
@@ -77,7 +77,7 @@ disp([IAE, IE, ITAE, TVd]);
 disp('===================================');
 
 
-[Q_num, Q_den] = tfdata(Qpid_optf);
+[Q_num, Q_den] = tfdata(Qpid_optf-1/R);
 Q_num = Q_num{1};
 Q_den = Q_den{1};
 
@@ -93,9 +93,9 @@ disp([IAE, IE, ITAE, TVd]);
 disp('===================================');
 
 figure(f1);
-legend(legend_names, 'Location', 'best');
+legend(legend_names, 'Location', 'southeast');
 figure(f2);
-legend(legend_names, 'Location', 'best');
+legend(legend_names, 'Location', 'southeast');
 
 if SAVE_PLOTS
     save_plots([f1, f2], {[f1.Name '_' id], ...

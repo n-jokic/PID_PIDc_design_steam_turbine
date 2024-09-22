@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.17)  20 SEP 2024 19:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.11.17)  22 SEP 2024 04:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1080,7 +1080,22 @@ File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 \tf@toc=\write6
 \openout6 = `report.toc'.
 
- [1] [2]
+ [1]
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 155--156
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--158
+
+ []
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 159--160
 
  []
@@ -1095,384 +1110,441 @@ Underfull \hbox (badness 10000) in paragraph at lines 163--164
 
  []
 
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 177--178
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 171--173
 
  []
 
-<slike/model.png, id=24, 1215.03937pt x 542.52687pt>
+<slike/lin_model.png, id=21, 328.22626pt x 114.92938pt>
+File: slike/lin_model.png Graphic file (type png)
+<use slike/lin_model.png>
+Package pdftex.def Info: slike/lin_model.png  used on input line 177.
+(pdftex.def)             Requested size: 483.69687pt x 169.37029pt.
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 184.
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+07.
+(c:/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [3 <./slike/lin_model.png>]
+<slike/kontroler_model.png, id=33, 334.75063pt x 160.09813pt>
+File: slike/kontroler_model.png Graphic file (type png)
+<use slike/kontroler_model.png>
+Package pdftex.def Info: slike/kontroler_model.png  used on input line 217.
+(pdftex.def)             Requested size: 483.69687pt x 231.35458pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
+
+ []
+
+<slike/model.png, id=34, 1215.03937pt x 542.52687pt>
 File: slike/model.png Graphic file (type png)
 <use slike/model.png>
-Package pdftex.def Info: slike/model.png  used on input line 183.
-(pdftex.def)             Requested size: 217.66211pt x 97.18703pt.
-[4
+Package pdftex.def Info: slike/model.png  used on input line 232.
+(pdftex.def)             Requested size: 386.95897pt x 172.77603pt.
+[4 <./slike/kontroler_model.png> <./slike/model.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 240--241
 
- <./slike/model.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 218--219
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--288
 
  []
 
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 232--233
+Underfull \hbox (badness 10000) in paragraph at lines 305--306
 
  []
 
 
-LaTeX Warning: Reference `tab:tab1' on page 6 undefined on input line 234.
+Underfull \hbox (badness 10000) in paragraph at lines 322--323
 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+[6
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 342--344
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--237
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 238--239
-
- []
-
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-42.
-(c:/texlive/2022/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-Underfull \hbox (badness 10000) in paragraph at lines 246--247
+Underfull \hbox (badness 10000) in paragraph at lines 347--348
 
  []
 
 
-LaTeX Warning: Reference `sec:por' on page 6 undefined on input line 248.
+Underfull \hbox (badness 10000) in paragraph at lines 357--359
 
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 248--249
+[7
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 382--383
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 250--251
+Underfull \hbox (badness 10000) in paragraph at lines 384--385
 
  []
 
-[6]
+
+Underfull \hbox (badness 10000) in paragraph at lines 386--387
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 388--389
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 390--391
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 392--393
+
+ []
+
+[8]
 Package epstopdf Info: Source file: <slike/Ms_Mt_pidc.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 47683 bytes
+(epstopdf)                    date: 2024-09-21 17:12:17
+(epstopdf)                    size: 41597 bytes
 (epstopdf)             Output file: <slike/Ms_Mt_pidc-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-09-20 18:14:29
-(epstopdf)                    size: 15702 bytes
+(epstopdf)                    date: 2024-09-21 17:18:43
+(epstopdf)                    size: 14150 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Ms_Mt_pidc-eps-conve
 rted-to.pdf slike/Ms_Mt_pidc.eps>
-(epstopdf)             \includegraphics on input line 276.
+(epstopdf)             \includegraphics on input line 413.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Ms_Mt_pidc-eps-converted-to.pdf, id=49, 367.3725pt x 296.10625pt>
+<slike/Ms_Mt_pidc-eps-converted-to.pdf, id=58, 367.3725pt x 296.10625pt>
 File: slike/Ms_Mt_pidc-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Ms_Mt_pidc-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Ms_Mt_pidc-eps-converted-to.pdf  used on input l
-ine 276.
-(pdftex.def)             Requested size: 227.3381pt x 183.24059pt.
+ine 413.
+(pdftex.def)             Requested size: 222.5038pt x 179.34589pt.
 Package epstopdf Info: Source file: <slike/Ms_Mt_pid.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 48900 bytes
+(epstopdf)                    date: 2024-09-21 17:12:22
+(epstopdf)                    size: 44455 bytes
 (epstopdf)             Output file: <slike/Ms_Mt_pid-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-09-20 18:14:38
-(epstopdf)                    size: 16178 bytes
+(epstopdf)                    date: 2024-09-21 17:18:50
+(epstopdf)                    size: 15680 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Ms_Mt_pid-eps-conver
 ted-to.pdf slike/Ms_Mt_pid.eps>
-(epstopdf)             \includegraphics on input line 283.
+(epstopdf)             \includegraphics on input line 420.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Ms_Mt_pid-eps-converted-to.pdf, id=50, 367.3725pt x 296.10625pt>
+<slike/Ms_Mt_pid-eps-converted-to.pdf, id=59, 367.3725pt x 296.10625pt>
 File: slike/Ms_Mt_pid-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Ms_Mt_pid-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Ms_Mt_pid-eps-converted-to.pdf  used on input li
-ne 283.
-(pdftex.def)             Requested size: 227.3381pt x 183.24059pt.
+ne 420.
+(pdftex.def)             Requested size: 222.5038pt x 179.34589pt.
 Package epstopdf Info: Source file: <slike/Ms_Mt_pid_lam.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 46991 bytes
+(epstopdf)                    date: 2024-09-21 17:12:26
+(epstopdf)                    size: 46251 bytes
 (epstopdf)             Output file: <slike/Ms_Mt_pid_lam-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-09-20 18:14:46
-(epstopdf)                    size: 15117 bytes
+(epstopdf)                    date: 2024-09-21 17:18:57
+(epstopdf)                    size: 15493 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Ms_Mt_pid_lam-eps-co
 nverted-to.pdf slike/Ms_Mt_pid_lam.eps>
-(epstopdf)             \includegraphics on input line 290.
+(epstopdf)             \includegraphics on input line 427.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Ms_Mt_pid_lam-eps-converted-to.pdf, id=51, 367.3725pt x 296.10625pt>
+<slike/Ms_Mt_pid_lam-eps-converted-to.pdf, id=60, 367.3725pt x 296.10625pt>
 File: slike/Ms_Mt_pid_lam-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Ms_Mt_pid_lam-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Ms_Mt_pid_lam-eps-converted-to.pdf  used on inpu
-t line 290.
-(pdftex.def)             Requested size: 227.3381pt x 183.24059pt.
+t line 427.
+(pdftex.def)             Requested size: 222.5038pt x 179.34589pt.
 Package epstopdf Info: Source file: <slike/Ms_Mt_pid_opt.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 46788 bytes
+(epstopdf)                    date: 2024-09-21 17:12:31
+(epstopdf)                    size: 45414 bytes
 (epstopdf)             Output file: <slike/Ms_Mt_pid_opt-eps-converted-to.pdf>
-(epstopdf)                    date: 2024-09-20 18:14:55
-(epstopdf)                    size: 15150 bytes
+(epstopdf)                    date: 2024-09-21 17:19:05
+(epstopdf)                    size: 15019 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Ms_Mt_pid_opt-eps-co
 nverted-to.pdf slike/Ms_Mt_pid_opt.eps>
-(epstopdf)             \includegraphics on input line 297.
+(epstopdf)             \includegraphics on input line 434.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Ms_Mt_pid_opt-eps-converted-to.pdf, id=52, 367.3725pt x 296.10625pt>
+<slike/Ms_Mt_pid_opt-eps-converted-to.pdf, id=61, 367.3725pt x 296.10625pt>
 File: slike/Ms_Mt_pid_opt-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Ms_Mt_pid_opt-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Ms_Mt_pid_opt-eps-converted-to.pdf  used on inpu
-t line 297.
+t line 434.
 (pdftex.def)             Requested size: 290.22107pt x 233.93492pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/Ms_Mt_pid_optf.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 46725 bytes
+(epstopdf)                    date: 2024-09-21 18:27:05
+(epstopdf)                    size: 45519 bytes
 (epstopdf)             Output file: <slike/Ms_Mt_pid_optf-eps-converted-to.pdf>
 
-(epstopdf)                    date: 2024-09-20 18:15:04
-(epstopdf)                    size: 14846 bytes
+(epstopdf)                    date: 2024-09-21 18:31:18
+(epstopdf)                    size: 15266 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Ms_Mt_pid_optf-eps-c
 onverted-to.pdf slike/Ms_Mt_pid_optf.eps>
-(epstopdf)             \includegraphics on input line 304.
+(epstopdf)             \includegraphics on input line 441.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Ms_Mt_pid_optf-eps-converted-to.pdf, id=53, 367.3725pt x 296.10625pt>
+<slike/Ms_Mt_pid_optf-eps-converted-to.pdf, id=62, 367.3725pt x 296.10625pt>
 File: slike/Ms_Mt_pid_optf-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Ms_Mt_pid_optf-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Ms_Mt_pid_optf-eps-converted-to.pdf  used on inp
-ut line 304.
+ut line 441.
 (pdftex.def)             Requested size: 290.22107pt x 233.93492pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[7
+[9
 
  <./slike/Ms_Mt_pidc-eps-converted-to.pdf> <./slike/Ms_Mt_pid-eps-converted-to.
-pdf> <./slike/Ms_Mt_pid_lam-eps-converted-to.pdf>] [8 <./slike/Ms_Mt_pid_opt-ep
-s-converted-to.pdf> <./slike/Ms_Mt_pid_optf-eps-converted-to.pdf>]
+pdf> <./slike/Ms_Mt_pid_lam-eps-converted-to.pdf>] [10 <./slike/Ms_Mt_pid_opt-e
+ps-converted-to.pdf> <./slike/Ms_Mt_pid_optf-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <slike/Pg_comparison_default.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 96249 bytes
+(epstopdf)                    date: 2024-09-21 18:30:05
+(epstopdf)                    size: 92008 bytes
 (epstopdf)             Output file: <slike/Pg_comparison_default-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2024-09-20 18:26:54
-(epstopdf)                    size: 28046 bytes
+(epstopdf)                    date: 2024-09-21 18:31:24
+(epstopdf)                    size: 27867 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Pg_comparison_defaul
 t-eps-converted-to.pdf slike/Pg_comparison_default.eps>
-(epstopdf)             \includegraphics on input line 312.
+(epstopdf)             \includegraphics on input line 451.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Pg_comparison_default-eps-converted-to.pdf, id=80, 348.30125pt x 277.035
+<slike/Pg_comparison_default-eps-converted-to.pdf, id=89, 348.30125pt x 277.035
 pt>
 File: slike/Pg_comparison_default-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Pg_comparison_default-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Pg_comparison_default-eps-converted-to.pdf  used
- on input line 312.
+ on input line 451.
 (pdftex.def)             Requested size: 290.22107pt x 230.84784pt.
 Package epstopdf Info: Source file: <slike/fm_comparison_default.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 96492 bytes
+(epstopdf)                    date: 2024-09-21 18:30:04
+(epstopdf)                    size: 92427 bytes
 (epstopdf)             Output file: <slike/fm_comparison_default-eps-converted-
 to.pdf>
-(epstopdf)                    date: 2024-09-20 18:27:01
-(epstopdf)                    size: 29618 bytes
+(epstopdf)                    date: 2024-09-21 18:31:30
+(epstopdf)                    size: 29439 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/fm_comparison_defaul
 t-eps-converted-to.pdf slike/fm_comparison_default.eps>
-(epstopdf)             \includegraphics on input line 319.
+(epstopdf)             \includegraphics on input line 458.
 Package epstopdf Info: Output file is already uptodate.
-<slike/fm_comparison_default-eps-converted-to.pdf, id=81, 351.3125pt x 277.035p
+<slike/fm_comparison_default-eps-converted-to.pdf, id=90, 351.3125pt x 277.035p
 t>
 File: slike/fm_comparison_default-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/fm_comparison_default-eps-converted-to.pdf>
 Package pdftex.def Info: slike/fm_comparison_default-eps-converted-to.pdf  used
- on input line 319.
+ on input line 458.
 (pdftex.def)             Requested size: 290.22107pt x 228.87796pt.
 Package epstopdf Info: Source file: <slike/Pg_comparison_+50.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 96914 bytes
+(epstopdf)                    date: 2024-09-21 18:30:19
+(epstopdf)                    size: 92664 bytes
 (epstopdf)             Output file: <slike/Pg_comparison_+50-eps-converted-to.p
 df>
-(epstopdf)                    date: 2024-09-20 18:27:09
-(epstopdf)                    size: 29010 bytes
+(epstopdf)                    date: 2024-09-21 18:31:37
+(epstopdf)                    size: 28938 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Pg_comparison_+50-ep
 s-converted-to.pdf slike/Pg_comparison_+50.eps>
-(epstopdf)             \includegraphics on input line 326.
+(epstopdf)             \includegraphics on input line 465.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Pg_comparison_+50-eps-converted-to.pdf, id=82, 348.30125pt x 277.035pt>
+<slike/Pg_comparison_+50-eps-converted-to.pdf, id=91, 348.30125pt x 277.035pt>
 File: slike/Pg_comparison_+50-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Pg_comparison_+50-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Pg_comparison_+50-eps-converted-to.pdf  used on 
-input line 326.
+input line 465.
 (pdftex.def)             Requested size: 290.22107pt x 230.84784pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/fm_comparison_+50.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 95250 bytes
+(epstopdf)                    date: 2024-09-21 18:30:18
+(epstopdf)                    size: 91028 bytes
 (epstopdf)             Output file: <slike/fm_comparison_+50-eps-converted-to.p
 df>
-(epstopdf)                    date: 2024-09-20 18:27:17
-(epstopdf)                    size: 29334 bytes
+(epstopdf)                    date: 2024-09-21 18:31:44
+(epstopdf)                    size: 29178 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/fm_comparison_+50-ep
 s-converted-to.pdf slike/fm_comparison_+50.eps>
-(epstopdf)             \includegraphics on input line 333.
+(epstopdf)             \includegraphics on input line 472.
 Package epstopdf Info: Output file is already uptodate.
-<slike/fm_comparison_+50-eps-converted-to.pdf, id=83, 351.3125pt x 277.035pt>
+<slike/fm_comparison_+50-eps-converted-to.pdf, id=92, 351.3125pt x 277.035pt>
 File: slike/fm_comparison_+50-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/fm_comparison_+50-eps-converted-to.pdf>
 Package pdftex.def Info: slike/fm_comparison_+50-eps-converted-to.pdf  used on 
-input line 333.
+input line 472.
 (pdftex.def)             Requested size: 290.22107pt x 228.87796pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/Pg_comparison_-50.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 94849 bytes
+(epstopdf)                    date: 2024-09-21 18:30:26
+(epstopdf)                    size: 90594 bytes
 (epstopdf)             Output file: <slike/Pg_comparison_-50-eps-converted-to.p
 df>
-(epstopdf)                    date: 2024-09-20 18:27:26
-(epstopdf)                    size: 27650 bytes
+(epstopdf)                    date: 2024-09-21 18:31:52
+(epstopdf)                    size: 27490 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Pg_comparison_-50-ep
 s-converted-to.pdf slike/Pg_comparison_-50.eps>
-(epstopdf)             \includegraphics on input line 340.
+(epstopdf)             \includegraphics on input line 479.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Pg_comparison_-50-eps-converted-to.pdf, id=84, 348.30125pt x 277.035pt>
+<slike/Pg_comparison_-50-eps-converted-to.pdf, id=93, 348.30125pt x 277.035pt>
 File: slike/Pg_comparison_-50-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Pg_comparison_-50-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Pg_comparison_-50-eps-converted-to.pdf  used on 
-input line 340.
+input line 479.
 (pdftex.def)             Requested size: 290.22107pt x 230.84784pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/fm_comparison_-50.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 96643 bytes
+(epstopdf)                    date: 2024-09-21 18:30:25
+(epstopdf)                    size: 92552 bytes
 (epstopdf)             Output file: <slike/fm_comparison_-50-eps-converted-to.p
 df>
-(epstopdf)                    date: 2024-09-20 18:27:34
-(epstopdf)                    size: 29991 bytes
+(epstopdf)                    date: 2024-09-21 18:32:01
+(epstopdf)                    size: 29996 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/fm_comparison_-50-ep
 s-converted-to.pdf slike/fm_comparison_-50.eps>
-(epstopdf)             \includegraphics on input line 347.
+(epstopdf)             \includegraphics on input line 486.
 Package epstopdf Info: Output file is already uptodate.
-<slike/fm_comparison_-50-eps-converted-to.pdf, id=85, 357.335pt x 277.035pt>
+<slike/fm_comparison_-50-eps-converted-to.pdf, id=94, 357.335pt x 277.035pt>
 File: slike/fm_comparison_-50-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/fm_comparison_-50-eps-converted-to.pdf>
 Package pdftex.def Info: slike/fm_comparison_-50-eps-converted-to.pdf  used on 
-input line 347.
+input line 486.
 (pdftex.def)             Requested size: 290.22107pt x 225.01428pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/Pg_comparison_noise.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 96734 bytes
+(epstopdf)                    date: 2024-09-21 18:30:46
+(epstopdf)                    size: 92491 bytes
 (epstopdf)             Output file: <slike/Pg_comparison_noise-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2024-09-20 18:27:42
-(epstopdf)                    size: 30070 bytes
+(epstopdf)                    date: 2024-09-21 18:32:11
+(epstopdf)                    size: 29993 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/Pg_comparison_noise-
 eps-converted-to.pdf slike/Pg_comparison_noise.eps>
-(epstopdf)             \includegraphics on input line 355.
+(epstopdf)             \includegraphics on input line 494.
 Package epstopdf Info: Output file is already uptodate.
-<slike/Pg_comparison_noise-eps-converted-to.pdf, id=86, 348.30125pt x 277.035pt
+<slike/Pg_comparison_noise-eps-converted-to.pdf, id=95, 348.30125pt x 277.035pt
 >
 File: slike/Pg_comparison_noise-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/Pg_comparison_noise-eps-converted-to.pdf>
 Package pdftex.def Info: slike/Pg_comparison_noise-eps-converted-to.pdf  used o
-n input line 355.
+n input line 494.
 (pdftex.def)             Requested size: 290.22107pt x 230.84784pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 Package epstopdf Info: Source file: <slike/fm_comparison_noise.eps>
-(epstopdf)                    date: 2024-09-20 15:08:07
-(epstopdf)                    size: 97211 bytes
+(epstopdf)                    date: 2024-09-21 18:30:45
+(epstopdf)                    size: 92979 bytes
 (epstopdf)             Output file: <slike/fm_comparison_noise-eps-converted-to
 .pdf>
-(epstopdf)                    date: 2024-09-20 18:27:52
-(epstopdf)                    size: 31001 bytes
+(epstopdf)                    date: 2024-09-21 18:32:23
+(epstopdf)                    size: 30962 bytes
 (epstopdf)             Command: <repstopdf --outfile=slike/fm_comparison_noise-
 eps-converted-to.pdf slike/fm_comparison_noise.eps>
-(epstopdf)             \includegraphics on input line 362.
+(epstopdf)             \includegraphics on input line 501.
 Package epstopdf Info: Output file is already uptodate.
-<slike/fm_comparison_noise-eps-converted-to.pdf, id=87, 351.3125pt x 277.035pt>
+<slike/fm_comparison_noise-eps-converted-to.pdf, id=96, 351.3125pt x 277.035pt>
 
 File: slike/fm_comparison_noise-eps-converted-to.pdf Graphic file (type pdf)
 <use slike/fm_comparison_noise-eps-converted-to.pdf>
 Package pdftex.def Info: slike/fm_comparison_noise-eps-converted-to.pdf  used o
-n input line 362.
+n input line 501.
 (pdftex.def)             Requested size: 290.22107pt x 228.87796pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[9
+[11
 
  <./slike/Pg_comparison_default-eps-converted-to.pdf> <./slike/fm_comparison_de
-fault-eps-converted-to.pdf>] [10 <./slike/Pg_comparison_+50-eps-converted-to.pd
-f> <./slike/fm_comparison_+50-eps-converted-to.pdf>] [11 <./slike/Pg_comparison
-_-50-eps-converted-to.pdf> <./slike/fm_comparison_-50-eps-converted-to.pdf>]
-[12 <./slike/Pg_comparison_noise-eps-converted-to.pdf> <./slike/fm_comparison_n
-oise-eps-converted-to.pdf>] [13
+fault-eps-converted-to.pdf>] [12 <./slike/Pg_comparison_+50-eps-converted-to.pd
+f> <./slike/fm_comparison_+50-eps-converted-to.pdf>] [13 <./slike/Pg_comparison
+_-50-eps-converted-to.pdf> <./slike/fm_comparison_-50-eps-converted-to.pdf>] [1
+4 <./slike/Pg_comparison_noise-eps-converted-to.pdf> <./slike/fm_comparison_noi
+se-eps-converted-to.pdf>] [15
 
 ]
-
-LaTeX Warning: Reference `sec:OU' on page 14 undefined on input line 453.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 452--454
+Underfull \hbox (badness 10000) in paragraph at lines 592--593
 
  []
 
 
-LaTeX Warning: Reference `sec:OU' on page 14 undefined on input line 455.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 455--456
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 
  []
 
-[14
 
-] [15] (./report.aux)
+Underfull \hbox (badness 1168) in paragraph at lines 596--597
+[]\T1/lmr/m/n/10.95 Simulacijama je po-ka-za-no da su op-ti-mi-zo-va-ni kon-tro
+-le-ri nad-ma-²i-li ana-li-ti£-ki pro-jek-to-va-ne
+ []
 
-LaTeX Warning: There were undefined references.
 
- ) 
+Underfull \hbox (badness 10000) in paragraph at lines 596--597
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 598--599
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 600--601
+
+ []
+
+[16
+
+] [17] (./report.aux) ) 
 Here is how much of TeX's memory you used:
- 25868 strings out of 474971
- 538497 string characters out of 5780120
- 862197 words of memory out of 5000000
- 46855 multiletter control sequences out of 15000+600000
- 545214 words of font info for 76 fonts, out of 8000000 for 9000
+ 25872 strings out of 474971
+ 538808 string characters out of 5780120
+ 862299 words of memory out of 5000000
+ 46865 multiletter control sequences out of 15000+600000
+ 533995 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,12n,89p,1408b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/texlive/2022/te
-xmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvi
-ps/lm/lm-mathit.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c
-:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}<c:/texlive/2022/tex
-mf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/type
-1/public/lm/lmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmbx8.
-pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmcsc10.pfb><c:/texlive/2
-022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2022/texmf-dist/fon
-ts/type1/public/lm/lmmi6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/
-lmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/texli
-ve/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2022/texmf-dist/
-fonts/type1/public/lm/lmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/l
-m/lmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/tex
-live/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2022/texmf-di
-st/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/pub
-lic/lm/lmsy8.pfb>
-Output written on report.pdf (16 pages, 630427 bytes).
+ 84i,12n,89p,1018b,521s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc
+}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2022/texm
+f-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2022/texmf-dist/fonts/enc/d
+vips/lm/lm-mathex.enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-mathit.
+enc}{c:/texlive/2022/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2022/
+texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/texlive/2022/texmf-dist/fonts/t
+ype1/public/lm/lmbx12.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmc
+sc10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texli
+ve/2022/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2022/texmf-dist
+/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
+/lm/lmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/t
+exlive/2022/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2022/texmf-d
+ist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publ
+ic/lm/lmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:
+/texlive/2022/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2022/texm
+f-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1
+/public/lm/lmsy8.pfb>
+Output written on report.pdf (18 pages, 666537 bytes).
 PDF statistics:
- 220 PDF objects out of 1000 (max. 8388607)
- 138 compressed objects within 2 object streams
+ 225 PDF objects out of 1000 (max. 8388607)
+ 139 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

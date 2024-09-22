@@ -92,7 +92,7 @@ function J = objfunc(G, Gp, H, K, Ki, Kd, Tf, t, idx, Ms, w)
 % OBJFUNC   The objective function used in the optimization process of the algorithm.
 
 C = pidctrl(K, Ki, Kd, Tf);
-[Ms_current, SYS] = calcms(G, Gp, H, C, w);
+[Ms_current, SYS] = calcms(G, Gp, C, w);
 e =step(minreal(Gp*SYS), t);
 
 % The unconstrained optimality criteria
@@ -145,12 +145,12 @@ switch idx
 end
 
 
-function [Ms, SYS] = calcms(G, Gp, H, C, w)
+function [Ms, SYS] = calcms(G, H, C, w)
 % CALCMS    Calculates Ms parameter and related transfer function SYS using a set of relevant
 % vectors w.
 SYS = minreal(1/(1+G*C));
 %SYS1 = minreal(G*C/(1+G*C));
-[magS,~,~] = bode(minreal(H*SYS));
+[magS,~,~] = bode(SYS);
 m(1, :) = magS(1, 1, :);
 %m1 = bode(SYS1, w);
 Ms = max(m);
@@ -162,13 +162,12 @@ global G_sys;
 global w_target;
 global Mn_1;
 global H_sys
-global Gp_sys;
 
 K  = params(1);
 Ki = params(2);
 Kd = params(3);
 Tf = Kd/Mn_1;
 C = pidctrl(K, Ki, Kd, Tf);
-Ms_current = calcms(G_sys, Gp_sys, H_sys, C, w_target);
+Ms_current = calcms(G_sys, H_sys, C, w_target);
 cstr = abs(Ms_current - Ms_target);
 ceq=0;

@@ -4,6 +4,9 @@ clc;
 
 %all subfolders to path
 addpath(genpath(pwd));
+%% Controller design init
+design_init;
+
 
 %% Parameters:
 types = {'non-reheated', 'reheated', 'hydro'};
@@ -68,9 +71,6 @@ Q_num = [0];
 Q_den = [1 1];
 
 t_end = 10;
-%% Controller design init
-design_init;
-
 %% Save setup
 SAVE_PLOTS = false;
 PATH = '..\latex\slike';
